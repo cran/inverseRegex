@@ -1,15 +1,15 @@
-## ----setup, include = FALSE----------------------------------------------
+## ----setup, include = FALSE---------------------------------------------------
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
 )
 
-## ---- echo = FALSE-------------------------------------------------------
+## ---- echo = FALSE------------------------------------------------------------
 
 library(inverseRegex)
 
 
-## ---- echo = TRUE--------------------------------------------------------
+## ---- echo = TRUE-------------------------------------------------------------
 inverseRegex('1aA')
 inverseRegex('1aA', combineCases = TRUE)
 inverseRegex('1aA', combineAlphanumeric = TRUE)
@@ -17,12 +17,12 @@ inverseRegex('Hello World!')
 inverseRegex('Hello World!', combineSpace = TRUE, combinePunctuation = TRUE)
 
 
-## ---- echo = TRUE--------------------------------------------------------
+## ---- echo = TRUE-------------------------------------------------------------
 inverseRegex('abcd1234567')
 inverseRegex('abcd1234567', numbersToKeep = NULL)
 inverseRegex('abcd1234567', numbersToKeep = 1:10)
 
-## ---- echo = TRUE--------------------------------------------------------
+## ---- echo = TRUE-------------------------------------------------------------
 vapply(c(1, 1.0, 1.10, 1.12, 1.123), format, character(1), nsmall = 1)
 inverseRegex(c(1, 1.0, 1.10, 1.12, 1.123), numbersToKeep = 2:10)
 
@@ -30,16 +30,16 @@ inverseRegex(c(1, 1.0, 1.10, 1.12, 1.123), numbersToKeep = 2:10)
 inverseRegex(1L)
 
 
-## ---- echo = TRUE--------------------------------------------------------
+## ---- echo = TRUE-------------------------------------------------------------
 inverseRegex(c(1, 1.0, 1.10, 1.12, 1.123))
 inverseRegex(data.frame(a = c(1, 1.0, 1.10, 1.12, 1.123)))
 
 
-## ---- echo = TRUE--------------------------------------------------------
+## ---- echo = TRUE-------------------------------------------------------------
 unique(inverseRegex(iris, numbersToKeep = 2:10))
 
 
-## ---- echo = TRUE--------------------------------------------------------
+## ---- echo = TRUE-------------------------------------------------------------
 occurrencesLessThan(c(LETTERS, 1))
 
 ## When called on a data frame occurrencesLessThan will assess each column individually.
